@@ -1,10 +1,20 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const App = () => {
+  const [like, setLike] = useState(0);
+
+  var increment = () => {
+    setLike(like + 1);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Opa</Text>
+      <Text style={styles.text}>Like</Text>
+      <Text style={styles.text}>{like}</Text>
+      <TouchableOpacity>
+        <Text onPress={increment}>Mais 1</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -12,9 +22,11 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  text: {
+    fontSize: 22,
   },
 });
 
